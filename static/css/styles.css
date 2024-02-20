@@ -1,0 +1,250 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  background: #0e0e10; /* Тёмный фон */
+}
+
+/* Градиентный фон */
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #2e14d7, #02eaff);
+  z-index: 0;
+}
+
+/* Анимированные линии */
+.line {
+  position: absolute;
+  height: 2px; /* Толщина линии */
+  background: white; /* Цвет линии */
+  opacity: 1; /* Начальная прозрачность */
+  z-index: 1;
+  animation: animateLine 1s linear forwards; /* Увеличенное время анимации */
+}
+
+/* Анимация для линий */
+@keyframes animateLine {
+  0% {
+    width: 0;
+    opacity: 1;
+  }
+  100% {
+    width: 100px; /* Линия достигает полной длины */
+    opacity: 0; /* Линия постепенно становится прозрачной */
+  }
+}
+
+.animated-background {
+  /* Примените стили для анимированного фона, когда класс .animated-background добавлен к body */
+}
+
+/* Общие стили */
+body, .main-section {
+    background-color: #FFFFFF; /* Белый фон */
+}
+
+.navbar {
+    background-color: #294a70 !important; /* Темно-синий цвет для верхнего меню */
+    color: #FFFFFF;
+}
+
+.center {
+    color: #000000;
+}
+
+/* Делаем текст в меню белым */
+.navbar-nav .nav-link, .navbar-brand {
+    color: #ffffff !important;
+}
+
+.toggle-container {
+  width: 60px;
+  height: 30px;
+  background-color: #ddd;
+  border-radius: 15px;
+  position: relative;
+  cursor: pointer;
+  margin-top: 20px; /* Отступ сверху */
+}
+
+.toggle-container.blue .toggle-circle {
+  left: auto;
+  right: 2.5px; /* Переместить кружок вправо */
+  background-color: #007bff !important; /* Синий цвет кружка */
+}
+
+.toggle-circle {
+  position: absolute;
+  top: 5px;
+  left: 5px; /* Начальное положение слева */
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  transition: all 0.3s ease; /* Плавное перемещение */
+}
+
+body.bg-primary .toggle-circle {
+  left: auto;
+  right: 5px; /* Положение справа при синем фоне */
+}
+
+body.bg-primary {
+  background-color: #007bff; /* Синий фон */
+  color: white;
+}
+
+body.bg-white {
+  background-color: #ffffff; /* Белый фон */
+  color: black;
+}
+
+/* Дополнительные стили для формы поиска, если требуется */
+.form-inline .form-control {
+    margin-bottom: 10px; /* Добавляет отступы между полями и кнопкой */
+}
+
+.container {
+    box-shadow: none; /* Убираем тень */
+    background-color: #FFFFFF; /* Белый фон */
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    border-color: black;
+    max-width: 800px;
+}
+
+.container:hover {
+    transform: none; /* Убираем эффект при наведении */
+}
+
+/* Стили для выделения текста */
+::selection {
+    background: #003366; /* Цвет фона для выделенного текста */
+    color: white; /* Цвет текста для выделенного текста */
+}
+
+/* Стили для ссылок */
+a, a:visited {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover, a:active {
+    text-decoration: underline;
+}
+
+/* Стили кнопок */
+a.btn {
+    color: #007bff;
+    padding: 10px 15px;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+a.btn:hover {
+    background-color: #0056b3; /* Темно-синий цвет при наведении */
+    color: #fff;
+}
+
+/* Стили для заголовков */
+h1, h2, h3, h4, h5, h6 {
+    color: #294a70;
+    font-family: 'Merriweather Sans', sans-serif;
+    font-weight: normal;
+    margin: 0 0 15px;
+}
+
+/* Стили для основного текста */
+p, li, .site-description {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.5;
+    font-size: 14px;
+    color: #666666;
+}
+
+/* Стили для копирайта с кликабельной ссылкой */
+.site-info {
+    color: #666666;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.site-info a {
+    color: #007bff;
+}
+
+/* Стили для приветственного сообщения */
+.welcome-message {
+    background-color: #f0f0f0;
+    border-bottom: 2px solid #003366;
+    padding: 20px;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    color: #294a70;
+    margin-bottom: 20px;
+
+}
+
+/* Обертка для пагинации */
+.pagination-wrapper {
+    display: flex;
+    justify-content: center; /* Выравнивание по центру */
+    margin-top: 20px; /* Пространство от верхнего края */
+    margin-bottom: 20px; /* Пространство от нижнего края */
+}
+
+/* Стили для пагинации */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    margin: 20px auto;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: fit-content;
+}
+
+.page-link {
+    color: #007bff;
+    border: none; /* Убираем границу */
+    background-color: transparent; /* Прозрачный фон */
+    border-radius: 10px; /* Закругляем углы */
+    padding: 5px 10px;
+    margin: 0 5px; /* Добавляем небольшой интервал между элементами */
+}
+
+.page-link:hover {
+    background-color: #007bff; /* Темно-синий фон при наведении */
+    color: #fff; /* Белый текст при наведении */
+}
+
+.current-page {
+    background-color: #007bff; /* Темно-синий фон для текущей страницы */
+    color: #fff; /* Белый текст для текущей страницы */
+    border-radius: 10px; /* Закругляем углы */
+    padding: 5px 10px;
+    margin: 0 5px; /* Добавляем небольшой интервал между элементами */
+}
+
+.page-info {
+    color: #007bff; /* Синий текст для информации о странице */
+    padding: 5px 10px;
+    margin: 0 5px; /* Добавляем небольшой интервал между элементами */
+}
+
+.page-info span {
+    color: #007bff; /* Белый текст для информации о странице */
+    background-color: #fff; /* Темно-синий фон для информации о странице */
+    border-radius: 10px; /* Закругляем углы */
+    padding: 5px 10px;
+}
