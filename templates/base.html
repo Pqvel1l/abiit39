@@ -60,7 +60,6 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   loadState();
-  initLines(); // Инициализация линий при загрузке
 });
 
 function toggleBackground() {
@@ -80,9 +79,6 @@ function toggleBackground() {
     document.querySelector('img').src = '{% static "images/white.png" %}';
     // Сохраняем состояние в localStorage
     localStorage.setItem('backgroundState', 'blue');
-
-    // Применяем анимированные стили
-    applyAnimatedStyles();
   } else {
     // Возвращаем кружок влево и изменяем цвет фона на белый
     toggleCircle.classList.remove('toggle-right');
@@ -95,9 +91,6 @@ function toggleBackground() {
     document.querySelector('img').src = '{% static "images/blue.png" %}';
     // Сохраняем состояние в localStorage
     localStorage.setItem('backgroundState', 'white');
-
-    // Удаляем анимированные стили
-    removeAnimatedStyles();
   }
 }
 
@@ -114,7 +107,6 @@ function loadState() {
     body.classList.add('bg-primary');
     toggleCircle.style.backgroundColor = "#007bff";
     document.querySelector('img').src = '{% static "images/white.png" %}';
-    applyAnimatedStyles(); // Применяем анимированные стили при загрузке
   } else if (backgroundState === 'white') {
     toggleCircle.classList.remove('toggle-right');
     toggleCircle.classList.add('toggle-left');
@@ -122,45 +114,8 @@ function loadState() {
     body.classList.remove('bg-primary');
     toggleCircle.style.backgroundColor = "#007bff";
     document.querySelector('img').src = '{% static "images/blue.png" %}';
-    removeAnimatedStyles(); // Удаляем анимированные стили при загрузке
   }
 }
-
-// Функции для создания и инициализации линий
-function createLine() {
-  const line = document.createElement('div');
-  line.classList.add('line');
-  line.style.width = '2px'; // Толщина линии
-  // Случайные начальные позиции для линии
-  line.style.top = Math.random() * window.innerHeight + 'px';
-  line.style.left = Math.random() * window.innerWidth + 'px';
-
-  // Устанавливаем случайный угол наклона линии
-  line.style.transform = 'rotate(' + (1 * 45) + 'deg)';
-
-  // Добавляем линию на страницу
-  document.body.appendChild(line);
-
-  // Удаляем линию после того, как анимация закончится
-  line.addEventListener('animationend', function() {
-    document.body.removeChild(line);
-  });
-}
-
-function initLines() {
-  const interval = 100; // Интервал создания линий
-  setInterval(createLine, interval);
-}
-
-// Функции для применения и удаления анимированных стилей
-function applyAnimatedStyles() {
-  document.body.classList.add('animated-background'); // Добавляем класс для анимированного фона
-}
-
-function removeAnimatedStyles() {
-  document.body.classList.remove('animated-background'); // Убираем класс анимированного фона
-}
-
 </script>
 
 
